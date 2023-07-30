@@ -12,7 +12,7 @@ public class Calculator {
             Scanner scanner = new Scanner(System.in);
 
             while (true) {
-                System.out.println("Введите количество человек");
+                System.out.println("Введите количество человек:");
                 persons = scanner.nextInt();
 
                 if (persons < 1) {
@@ -34,8 +34,7 @@ public class Calculator {
         int persons = countingPersons();
         float sum = 0;
 
-        System.out.println("Введите название товара и его стоимость в формате: \n[Наименование]\n" +
-                "[руб,коп]" +
+        System.out.println("Введите название товара:" +
                 "\nВведите 'Завершить' для того, чтобы завершить процесс добавления товаров.");
 
         while (true) {
@@ -55,6 +54,8 @@ public class Calculator {
                 break;
             }
 
+            System.out.println("Введите стоимость товара в формате: [руб,коп]:");
+
             while (true) {
                 try {
                     price = scanner.nextFloat();
@@ -66,6 +67,9 @@ public class Calculator {
                     }
                 }
                 catch (InputMismatchException e){
+                    if ((Integer.toString((int)price).equalsIgnoreCase(exit))){
+                        break;
+                    }
                     System.out.println("Вы ввели некорректный символ вместо числа или ввели некоректное число.");
                     countingProducts();
                 }

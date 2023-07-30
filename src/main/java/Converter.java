@@ -1,18 +1,21 @@
 public class Converter {
-    double count;
+    float count;
 
     Converter(float count){
         this.count = count;
     }
 
     String check(){
-        if (count % 100 > 10 && count % 100 < 20){
+        float remainTen = count % 10;
+        float remainHundred = count % 100;
+
+        if (remainTen > 10 && remainTen < 20 || remainHundred > 10 && remainHundred < 20){
             return "рублей";
         }
-        else if(count % 100 >= 1 && count % 100 < 2){
+        else if(remainTen >= 1 && remainTen < 2 || remainHundred >= 1 && remainHundred < 2){
             return "рубль";
         }
-        else if (count % 100 > 1 && count % 10 < 5){
+        else if (remainTen > 1 && remainTen < 5 || remainHundred > 1 && remainHundred < 5){
             return "рубля";
         }
         else{
